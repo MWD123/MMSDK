@@ -16,18 +16,19 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "MMSDK"
-  spec.version      = "0.0.1"
-  spec.summary      = "A short description of MMSDK."
+  spec.version      = "0.0.2"
+  spec.summary      = "颜色、图片、label、UIView扩展"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = <<-DESC
-                   DESC
+  # spec.description  = <<-DESC
+  #                  DESC
+   spec.description  = "对颜色、图片、label、UIView进行扩展扩展处理"
 
-  spec.homepage     = "http://EXAMPLE/MMSDK"
+  spec.homepage     = "https://github.com/MWD123/MMSDK"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,8 +39,8 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
-  # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  # spec.license      = "MIT (example)"
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -52,10 +53,10 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "Weidong Meng" => "" }
+  spec.author             = { "Weidong Meng" => "mwd668@126.com" }
   # Or just: spec.author    = "Weidong Meng"
   # spec.authors            = { "Weidong Meng" => "" }
-  # spec.social_media_url   = "https://twitter.com/Weidong Meng"
+  # spec.social_media_url   = "https://www.jianshu.com/u/afd5e54bf773"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -64,7 +65,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.platform     = :ios
-  # spec.platform     = :ios, "5.0"
+  
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -79,7 +80,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/MMSDK.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/MWD123/MMSDK.git", :tag => spec.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,10 +91,45 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
+  # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
 
-  # spec.public_header_files = "Classes/**/*.h"
+  spec.source_files  = "MMSDK/MMHead.h"
+  # spec.exclude_files = "Classes/Exclude"
+
+  spec.public_header_files = "MMSDK/MMHead.h"
+
+  spec.platform     = :ios, "9.0"
+
+  spec.subspec 'ColorEx' do |co|
+
+	co.source_files = 'MMSDK/ColorEx/**/*'
+	co.frameworks = 'UIKit'
+
+  end
+
+
+  spec.subspec 'ImgeEx' do |im|
+
+	im.source_files = 'MMSDK/ImgeEx/**/*'
+	im.frameworks = 'UIKit'
+
+  end
+
+
+
+  spec.subspec 'LabelEx' do |la|
+
+	la.source_files = 'MMSDK/LabelEx/**/*'
+	la.frameworks = 'UIKit'
+
+  end
+
+   spec.subspec 'ViewEx' do |vr|
+
+	vr.source_files = 'MMSDK/ViewEx/**/*'
+	vr.frameworks = 'UIKit'
+
+  end
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -129,7 +165,7 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # spec.requires_arc = true
+  spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
