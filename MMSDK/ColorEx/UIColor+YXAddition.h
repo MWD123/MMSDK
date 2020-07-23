@@ -41,6 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIColor*)yx_imageColor:(UIImage*)image;
 
++ (UIColor *)yx_aaaaaa;
+
 
 @end
 
